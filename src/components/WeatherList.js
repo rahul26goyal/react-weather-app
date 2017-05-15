@@ -1,0 +1,26 @@
+import React, {Component} from 'react';
+import WeatherListItem from "./WeatherListItem";
+
+class WeatherList extends  Component {
+
+    render(){
+        console.log("WeatherList::::this", this.props)
+        const { days, onDayClicked } = this.props;
+        return (
+            <div className="waether-list flax-parent">
+                {
+                    days.map((day, index) =>
+                        <WeatherListItem
+                        key={day.dt}
+                        day={day}
+                        index={index}
+                        onDayClicked={onDayClicked}
+                        />
+                    )
+                }
+            </div>
+        );
+    }
+}
+
+export  default WeatherList;
